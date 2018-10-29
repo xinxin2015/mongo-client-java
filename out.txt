@@ -1,0 +1,109 @@
+WELCOME -------------------
+
+test1111
+[
+	{
+		"_id" : ObjectId("5ba203386b52c552d22dc6f5"),
+		"uid" : 3,
+		"uname" : "nosqlfan3"
+	},
+	{
+		"_id" : ObjectId("5ba203386b52c552d22dc6f6"),
+		"uid" : 4,
+		"uname" : "nosqlfan4"
+	},
+	{
+		"_id" : ObjectId("5ba203386b52c552d22dc6f7"),
+		"uid" : 5,
+		"uname" : "nosqlfan5"
+	},
+	{
+		"_id" : ObjectId("5ba203386b52c552d22dc6fc"),
+		"uid" : 10,
+		"uname" : "nosqlfan10"
+	},
+	{
+		"_id" : ObjectId("5ba203386b52c552d22dc6fd"),
+		"uid" : 11,
+		"uname" : "nosqlfan11"
+	},
+	{
+		"_id" : ObjectId("5ba203386b52c552d22dc6fe"),
+		"uid" : 12,
+		"uname" : "nosqlfan12"
+	},
+	{
+		"_id" : ObjectId("5ba203386b52c552d22dc6ff"),
+		"uid" : 13,
+		"uname" : "nosqlfan13"
+	},
+	{
+		"_id" : ObjectId("5ba203386b52c552d22dc700"),
+		"uid" : 14,
+		"uname" : "nosqlfan14"
+	},
+	{
+		"_id" : ObjectId("5ba203386b52c552d22dc701"),
+		"uid" : 15,
+		"uname" : "nosqlfan15"
+	},
+	{
+		"_id" : ObjectId("5ba203386b52c552d22dc702"),
+		"uid" : 16,
+		"uname" : "nosqlfan16"
+	}
+]
+DB methods:
+	db.adminCommand(nameOrDocument) - switches to 'admin' db, and runs command [just calls db.runCommand(...)]
+	db.aggregate([pipeline], {options}) - performs a collectionless aggregation on this database; returns a cursor
+	db.auth(username, password)
+	db.cloneDatabase(fromhost) - deprecated
+	db.commandHelp(name) returns the help for the command
+	db.copyDatabase(fromdb, todb, fromhost) - deprecated
+	db.createCollection(name, {size: ..., capped: ..., max: ...})
+	db.createView(name, viewOn, [{$operator: {...}}, ...], {viewOptions})
+	db.createUser(userDocument)
+	db.currentOp() displays currently executing operations in the db
+	db.dropDatabase()
+	db.eval() - deprecated
+	db.fsyncLock() flush data to disk and lock server for backups
+	db.fsyncUnlock() unlocks server following a db.fsyncLock()
+	db.getCollection(cname) same as db['cname'] or db.cname
+	db.getCollectionInfos([filter]) - returns a list that contains the names and options of the db's collections
+	db.getCollectionNames()
+	db.getLastError() - just returns the err msg string
+	db.getLastErrorObj() - return full status object
+	db.getLogComponents()
+	db.getMongo() get the server connection object
+	db.getMongo().setSlaveOk() allow queries on a replication slave server
+	db.getName()
+	db.getPrevError()
+	db.getProfilingLevel() - deprecated
+	db.getProfilingStatus() - returns if profiling is on and slow threshold
+	db.getReplicationInfo()
+	db.getSiblingDB(name) get the db at the same server as this one
+	db.getWriteConcern() - returns the write concern used for any operations on this db, inherited from server object if set
+	db.hostInfo() get details about the server's host
+	db.isMaster() check replica primary status
+	db.killOp(opid) kills the current operation in the db
+	db.listCommands() lists all the db commands
+	db.loadServerScripts() loads all the scripts in db.system.js
+	db.logout()
+	db.printCollectionStats()
+	db.printReplicationInfo()
+	db.printShardingStatus()
+	db.printSlaveReplicationInfo()
+	db.dropUser(username)
+	db.repairDatabase()
+	db.resetError()
+	db.runCommand(cmdObj) run a database command.  if cmdObj is a string, turns it into {cmdObj: 1}
+	db.serverStatus()
+	db.setLogLevel(level,<component>)
+	db.setProfilingLevel(level,slowms) 0=off 1=slow 2=all
+	db.setWriteConcern(<write concern doc>) - sets the write concern for writes to the db
+	db.unsetWriteConcern(<write concern doc>) - unsets the write concern for writes to the db
+	db.setVerboseShell(flag) display extra information in shell output
+	db.shutdownServer()
+	db.stats()
+	db.version() current version of the server
+{ "__magicNoPrint" : 1111 }
