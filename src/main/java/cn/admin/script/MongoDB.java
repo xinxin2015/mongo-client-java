@@ -58,22 +58,38 @@ public class MongoDB {
             context.evaluateString(globalClass,"db.test.insert({'name':'1111'})","shell",1,null);
             Scanner s = new Scanner(System.in);
 
-            Thread thread = new Thread(() -> {
+            Thread thread1 = new Thread(() -> {
                 Context context1 = Context.enter();
                Scriptable threadScope = context1.newObject(globalClass);
                 threadScope.setPrototype(globalClass);
                 threadScope.setParentScope(null);
-                Object thread1Result = context.evaluateString(threadScope,"connect" +
+                Object thread1Result = context1.evaluateString(threadScope,"connect" +
                         "('localhost/test1111" +
                         "','local'," +
                         "'local')","shell",1,null);
                 ScriptableObject.putProperty(threadScope,"db",thread1Result);
-                context1.evaluateString(globalClass,"print(db)","shell",1,
+                context1.evaluateString(threadScope,"print(db)","shell",1,
                         null);
             });
 
-            thread.start();
-            thread.join();
+            Thread thread2 = new Thread(() -> {
+                Context context2 = Context.enter();
+                Scriptable threadScope = context2.newObject(globalClass);
+                threadScope.setPrototype(globalClass);
+                threadScope.setParentScope(null);
+                Object thread2Result = context2.evaluateString(threadScope,"connect" +
+                        "('localhost/test111" +
+                        "','local'," +
+                        "'local')","shell",1,null);
+                ScriptableObject.putProperty(threadScope,"db",thread2Result);
+                context2.evaluateString(threadScope,"print(db)","shell",1,
+                        null);
+            });
+
+            thread1.start();
+            thread2.start();
+            thread1.join();
+            thread2.join();
 
             context.evaluateString(globalClass,"print(db)","shell",1,
                     null);
